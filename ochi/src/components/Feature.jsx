@@ -1,6 +1,11 @@
-import React from 'react'
+import { motion } from 'framer-motion'
+import React, { useState } from 'react'
 
 const Feature = () => {
+
+    const [hovered, setHovered] = useState(false)
+    const [hovered2, setHovered2] = useState(false)
+
   return (
     <div className='w-full py-20'>
         <div className='w-full px-20 border-b border-zinc-500 pb-20'>
@@ -10,12 +15,15 @@ const Feature = () => {
         <div className='px-10'>
             <div className='cards w-full mt-10 flex gap-10'>
 
-                <div className='cardcontainer relative w-1/2 h-[75vh]'>
-                    <h1 className='absolute left-full -translate-x-1/2 top-1/2 -translate-y-1/2 text-[#a0b066] z-10 text-6xl leading-none tracking-tighter'>
+                <div onMouseEnter={()=>setHovered(true)} onMouseLeave={()=>setHovered(false)} className='cardcontainer relative w-1/2 h-[75vh]'>
+                    <h1 className='absolute flex overflow-hidden left-full -translate-x-1/2 top-1/2 -translate-y-1/2 text-[#a0b066] z-10 text-6xl leading-none tracking-tighter'>
                         {"Salience".split('').map((char, index) => (
-                            <span>
+                            <motion.span className="inline-block"
+                            initial={{ y: '100%' }}
+                            animate={hovered ? { y: "0" } : { y: '100%' }}
+                            transition={{delay: index * 0.05 }}>
                                 {char}
-                            </span>
+                            </motion.span>
                         ))}
                     </h1>
                     <div className='card w-full h-full rounded-lg overflow-hidden'>
@@ -24,12 +32,15 @@ const Feature = () => {
                 </div>
 
 
-                <div className='cardcontainer relative w-1/2 h-[75vh]'>
-                   <h1 className='absolute right-full translate-x-1/2 top-1/2 -translate-y-1/2 text-[#a0b066] z-10 text-6xl leading-none tracking-tighter'>
+                <div onMouseEnter={()=>setHovered2(true)} onMouseLeave={()=>setHovered2(false)} className='cardcontainer relative w-1/2 h-[75vh]'>
+                   <h1 className='absolute flex overflow-hidden right-full translate-x-1/2 top-1/2 -translate-y-1/2 text-[#a0b066] z-10 text-6xl leading-none tracking-tighter'>
                         {"Vise".split('').map((char, index) => (
-                            <span>
+                        <motion.span className="inline-block"
+                            initial={{ y: '100%' }}
+                            animate={hovered2 ? { y: "0" } : { y: '100%' }}
+                            transition={{delay: index * 0.05 }}>
                                 {char}
-                            </span>
+                        </motion.span>
                         ))}
                     </h1>
                     <div className='card w-full h-full rounded-lg overflow-hidden'>

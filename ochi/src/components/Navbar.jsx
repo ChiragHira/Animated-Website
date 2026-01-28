@@ -1,11 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { motion, AnimatePresence } from "framer-motion";
+import { u } from "framer-motion/client";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      if (currentScrollPos > prevScrollPos) {
+        setHidden(true);
+      } else {
+        setHidden(false);
+      }
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScrollPos]);
+
   return (
-    <div className='fixed z-999 w-full top-0 py-4 px-8 font-["Neue Montreal"] flex justify-between items-center'>
+    <div className={`fixed z-999 w-full top-0 py-4 px-8 font-["Neue Montreal"] flex justify-between items-center backdrop-blur-md ${hidden ? '-translate-y-full' : 'translate-y-0'} transition-transform duration-300 ease-in-out`}>
       <div className="logo">
         <svg
           width="72"

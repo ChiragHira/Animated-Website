@@ -6,8 +6,11 @@ import Footer from './components/Footer.jsx';
 import Landingpage from './components/Landingpage.jsx';
 import Marquee from './components/Marquee.jsx';
 import Navbar from './components/Navbar.jsx'
+import LocomotiveScroll from 'locomotive-scroll';
 
 const App = () => {
+  const locomotiveScroll = new LocomotiveScroll();
+
   return (
     <div className='w-full h-screen'>
       <Navbar />
