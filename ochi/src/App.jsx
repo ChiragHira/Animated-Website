@@ -1,4 +1,5 @@
 import About from './components/About.jsx';
+import Cards from './components/Cards.jsx';
 import Eyes from './components/Eyes.jsx';
 import Feature from './components/Feature.jsx';
 import Landingpage from './components/Landingpage.jsx';
@@ -14,6 +15,7 @@ const App = () => {
       <About />
       <Eyes />
       <Feature />
+      <Cards />
     </div>
   )
 }
