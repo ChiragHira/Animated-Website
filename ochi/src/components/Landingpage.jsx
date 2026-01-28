@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FaArrowUpLong } from "react-icons/fa6";
+import logo from "../assets/logo.png";
 
 const Landingpage = () => {
 
@@ -14,9 +15,11 @@ const Landingpage = () => {
                         initial={{ width: 0 }} 
                         animate={{ width: "9vw" }} 
                         transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
-                        className="w-[12vh] h-[5vw] bg-red-500"></motion.div>
+                        className="w-[12vh]">
+                          <img src="https://www.clipartmax.com/png/full/54-546414_doctor-logo-clip-art.png" alt="" />
+                        </motion.div>
                         ) : null}
-                        <h1 className='uppercase text-[7.5vw] leading-[6vw] tracking-tighter font-["Founders_Gortest"] font-medium'>
+                        <h1 className='uppercase text-[7.5vw] leading-[6vw] tracking-tighter font-["Founders_Gortest"] font-medium m-1'>
                             {items}
                         </h1>
                     </div>
